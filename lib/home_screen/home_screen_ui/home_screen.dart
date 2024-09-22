@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'custome_buttom_navigation_bar.dart';
+
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
 
@@ -26,22 +28,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Image.asset('assets/play-button.png'),
                   Positioned(
-                      top: 60,
-                      left: 20,
-                      child: Stack(children: [
-                        Image.asset('assets/side image.png',
-                        height: 150,width: 95,),
-                        const Icon(
-                          Icons.bookmark_sharp,
-                          size: 30,
-                          color: Color(0xff514F4F),
-                        ),
-                        const Icon(
-                          Icons.add,
-                          color: Colors.white70,
-                          size: 25,
-                        )
-                      ]),
+                    top: 60,
+                    left: 20,
+                    child: Stack(children: [
+                      Image.asset(
+                        'assets/side image.png',
+                        height: 150,
+                        width: 95,
+                      ),
+                      const Icon(
+                        Icons.bookmark_sharp,
+                        size: 30,
+                        color: Color(0xff514F4F),
+                      ),
+                      const Icon(
+                        Icons.add,
+                        color: Colors.white70,
+                        size: 25,
+                      )
+                    ]),
                   ),
                 ],
               ),
