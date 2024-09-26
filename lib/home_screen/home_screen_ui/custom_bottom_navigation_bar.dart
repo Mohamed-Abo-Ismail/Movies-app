@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../Browse_screen/browse.dart';
 import '../../search_screen/search.dart';
+import '../../watch_list_screen/watchlist_screen.dart';
 import 'home_screen.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget{
@@ -15,7 +16,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     HomeScreen(),
     SearchScreen(),
     Browse(),
-    Center(child: Text('Watchlist Screen', style: TextStyle(fontSize: 12))),
+  WatchlistScreen(),
   ];
   void onItemTapped(int index) {
     setState(() {
