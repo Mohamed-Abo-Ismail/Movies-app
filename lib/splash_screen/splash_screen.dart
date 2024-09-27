@@ -3,14 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../home_screen/home_screen_ui/custom_bottom_navigation_bar.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   static const String routeName = 'SplashScreen';
 
   @override
-  Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushNamed(CustomBottomNavigationBar.routeName);
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void intiState(){
+    super.initState();
+    Timer( const Duration(seconds: 3), () {
+      Navigator.pushReplacement(context,MaterialPageRoute(builder:(context)=> CustomBottomNavigationBar()));
     });
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(

@@ -13,6 +13,7 @@ void main(){
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: CustomBottomNavigationBar(),
+            home: CustomBottomNavigationBar(),
             );
           }),
     );
