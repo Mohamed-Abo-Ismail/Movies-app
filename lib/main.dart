@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/splash_screen/splash_screen.dart';
 import 'Browse_screen/browse_cubit.dart';
 import 'home_screen/home_screen_ui/custom_bottom_navigation_bar.dart';
-import 'home_screen/home_screen_ui/home_screen.dart';
+
 
 
 void main(){
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-            home: CustomBottomNavigationBar(),
+              home: CustomBottomNavigationBar(),
             );
           }),
     );

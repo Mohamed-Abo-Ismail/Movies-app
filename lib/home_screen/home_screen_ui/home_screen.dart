@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import '../../movie_details_screen/movie_details_ui/movie_details_screen.dart';
+import '../../search_screen/search.dart';
 import '../home_screen_api/api/api.dart';
 import '../home_screen_api/model/movie_model.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = 'HomeScreen';
+  static const String routeName = 'MovieDetailsScreen';
   @override
   State<HomeScreen> createState() => HomeScreenState();
 }
@@ -27,13 +29,18 @@ class HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: 160,
+                height: 140,
                 width: double.infinity,
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Image.asset(
-                      'assets/top image.png',
+                    InkWell(
+                      child: Image.asset(
+                        'assets/top image.png',
+                      ),
+                      onTap: (){
+                        Navigator.of(context).pushNamed(SearchScreen.routeName);
+                      },
                     ),
                     Image.asset('assets/play-button.png'),
                   ],
@@ -75,7 +82,7 @@ class HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 2),
                       Text(
                         '2019  PG-13  2h 7m',
                         style: TextStyle(
@@ -83,11 +90,12 @@ class HomeScreenState extends State<HomeScreen> {
                           fontSize: 12,
                         ),
                       ),
+                      SizedBox(height: 10),
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 7),
               Container(
                 color: Color(0xff282A28),
                 height: 190,
@@ -131,8 +139,14 @@ class HomeScreenState extends State<HomeScreen> {
                                           size: Size.fromRadius(
                                               48), // Image radius
                                           child: Stack(children: [
-                                            Image.network(
-                                                "https://image.tmdb.org/t/p/original/${movie.posterPath}"),
+                                            InkWell(
+                                              child: Image.network(
+                                                  "https://image.tmdb.org/t/p/original/${movie.posterPath}"),
+                                              onTap: (){
+                                                Navigator.push(context, MaterialPageRoute(builder: (context)=> MovieDetailsScreen()));
+                                              },
+                                            ),
+
                                             Icon(
                                               Icons.bookmark_sharp,
                                               size: 30,
@@ -162,7 +176,7 @@ class HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 color: Color(0xff282A28),
-                height: 296,
+                height: 320,
                 child: FutureBuilder(
                     future: topRatedMovies,
                     builder: (context, snapshot) {
@@ -205,8 +219,13 @@ class HomeScreenState extends State<HomeScreen> {
                                           child: Column(
                                             children: [
                                               Stack(children: [
-                                                Image.network(
-                                                    "https://image.tmdb.org/t/p/original/${movie.posterPath}"),
+                                                InkWell(
+                                                  child: Image.network(
+                                                      "https://image.tmdb.org/t/p/original/${movie.posterPath}"),
+                                                  onTap: (){
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> MovieDetailsScreen()));
+                                                  },
+                                                ),
                                                 Icon(
                                                   Icons.bookmark_sharp,
                                                   size: 30,
@@ -219,7 +238,7 @@ class HomeScreenState extends State<HomeScreen> {
                                                 )
                                               ]),
                                               Container(
-                                                height: 90,
+                                                height: 110,
                                                 color: Color(0xff514F4F)
                                                     .withOpacity(0.16),
                                                 child: Column(
@@ -247,7 +266,7 @@ class HomeScreenState extends State<HomeScreen> {
                                                       movie.title,
                                                       style: TextStyle(
                                                           color: Colors.white,
-                                                          fontSize: 16),
+                                                          fontSize: 15),
                                                     ),
                                                   ],
                                                 ),
